@@ -24,10 +24,8 @@ function magnitudeToRadius(magnitude) {
     return magnitude * 20000;
 }
 
-// Fetch the GeoJSON data
-fetch(url)
-.then(response => response.json())
-.then(data => {
+// Load the GeoJSON data using D3
+d3.json(url).then(function(data) {
     // Create a marker for each earthquake
     data.features.forEach(function(feature) {
         var coordinates = feature.geometry.coordinates;
